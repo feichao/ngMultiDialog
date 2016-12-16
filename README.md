@@ -1,6 +1,8 @@
 # ngMultiDialog
 angular material multi-dialog.
 
+### [demo](http://www.0xfc.cn/article/0/58538ab52c2ff13a2ae37521) ###
+
 **demo**
 
 > demo/index.html
