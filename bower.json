@@ -1,0 +1,20 @@
+{
+  "name": "ng-multi-dialog",
+  "version": "0.0.1",
+  "authors": [
+    "feichao.imayu.wan@gmail.com"
+  ],
+  "description": "angular material multi-dialog",
+  "keywords": [
+    "angular, material, multi-dialog"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-material": "^1.1.1"
+  }
+}

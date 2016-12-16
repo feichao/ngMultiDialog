@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="App">
+
+<head>
+  <title>ngMultiDialog</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" type="text/css" href="../src/ngMultiDialog.css">
+  <style type="text/css">
+  body {
+    margin: auto;
+    width: 600px;
+  }
+  .dialog {
+  	min-width: 540px;
+  	padding: 10px 30px 30px;
+  }
+  .wrapper {
+  	width: 600px;
+  }
+  .actions {
+  	margin-top: 40px;
+  }
+  </style>
+</head>
+
+<body>
+  <div ng-controller="Controller">
+  	<md-button class="md-primary" ng-click="openWrapperDialog($event)">Open Wraper Dialog</md-button>
+    <ng-multi-dialog open="isWrapperDialogOpen" ev="openWrapperDialogEvent">
+			<div class="dialog wrapper">
+				<h1>I Am Wraper Dialog</h1>
+				<h2>I Am Wraper Dialog</h2>
+				<h3>I Am Wraper Dialog</h3>
+				<div class="actions" layout="row" layout-align="end center">
+					<md-button class="md-primary" ng-click="openInnerDialog($event)">Open Inner Dialog</md-button>
+	    		<md-button class="md-primary" ng-click="closeWrapperDialog($event)">Close Wraper Dialog</md-button>
+				</div>
+	    	<ng-multi-dialog open="isInnerDialogOpen" ev="openInnerDialogEvent">
+	    		<div class="dialog inner">
+	    			<h2>I Am Inner Dialog</h2>
+	    			<h3>I Am Inner Dialog</h3>
+	    			<div class="actions" layout="row" layout-align="end center">
+	    				<md-button class="md-primary" ng-click="closeInnerDialog($event)">Close Inner Dialog</md-button>
+	    			</div>
+	    		</div>
+	    	</ng-multi-dialog>
+			</div>
+    </ng-multi-dialog>
+  </div>
+  <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-animate/angular-animate.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-aria/angular-aria.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-messages/angular-messages.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-material/angular-material.js"></script>
+	<script type="text/javascript" src="../src/ngMultiDialog.js"></script>
+  <script type="text/javascript">
+  angular.module('App', ['ngMaterial', 'ngMultiDialog'])
+    .controller('Controller', function($scope) {
+     	$scope.openWrapperDialog = function(event) {
+     		$scope.isWrapperDialogOpen = true; 
+     		$scope.openWrapperDialogEvent = event;
+     	};
+
+     	$scope.closeWrapperDialog = function(event) {
+     		$scope.isWrapperDialogOpen = false;
+     	};
+
+     	$scope.openInnerDialog = function(event) {
+     		$scope.isInnerDialogOpen = true; 
+     		$scope.openInnerDialogEvent = event;
+     	};
+
+     	$scope.closeInnerDialog = function(event) {
+     		$scope.isInnerDialogOpen = false;
+     	};
+    });
+  </script>
+</body>
+
+</html>
